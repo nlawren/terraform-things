@@ -1,6 +1,8 @@
-# terraform-things
-Learning about and playing around with Terraform
+# Terraform Things
 
-Now working through the Udemy course More than Certified in Terraform
+Learning about and playing around with Hashicorp Terraform.
+
+Currently working through the Udemy course "More than Certified in Terraform" by Derek Morgan.
+
 
 
