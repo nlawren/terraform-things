@@ -14,19 +14,19 @@ resource "docker_image" "nodered_image" {
 }
 
 resource "random_string" "random" {
-  length = 4
+  length  = 4
   special = false
-  upper = false
+  upper   = false
 }
 
 resource "random_string" "random2" {
-  length = 4
+  length  = 4
   special = false
-  upper = false
+  upper   = false
 }
 
 resource "docker_container" "nodered_container" {
-  name  = join("-",["nodered", random_string.random.result])
+  name  = join("-", ["nodered", random_string.random.result])
   image = docker_image.nodered_image.image_id
   ports {
     internal = 1880
@@ -35,7 +35,7 @@ resource "docker_container" "nodered_container" {
 }
 
 resource "docker_container" "nodered_container2" {
-  name  = join("-",["nodered", random_string.random2.result])
+  name  = join("-", ["nodered", random_string.random2.result])
   image = docker_image.nodered_image.image_id
   ports {
     internal = 1880
@@ -44,21 +44,21 @@ resource "docker_container" "nodered_container2" {
 }
 
 output "ip_address" {
-  value = join(":", [docker_container.nodered_container.network_data[0].ip_address, docker_container.nodered_container.ports[0].external])
+  value       = join(":", [docker_container.nodered_container.network_data[0].ip_address, docker_container.nodered_container.ports[0].external])
   description = "The IP address and port of the container"
 }
 
 output "ip_address2" {
-  value = join(":", [docker_container.nodered_container2.network_data[0].ip_address, docker_container.nodered_container2.ports[0].external])
+  value       = join(":", [docker_container.nodered_container2.network_data[0].ip_address, docker_container.nodered_container2.ports[0].external])
   description = "The IP address and port of the container"
 }
 
 output "container-name" {
-  value = docker_container.nodered_container.name
+  value       = docker_container.nodered_container.name
   description = "The name of the container"
 }
 
 output "container-name2" {
-  value = docker_container.nodered_container2.name
+  value       = docker_container.nodered_container2.name
   description = "The name of the container"
 }
