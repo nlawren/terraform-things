@@ -56,7 +56,9 @@ jobs:
       # Run Linter against code base #
       ################################
       - name: Lint Code Base
-        uses: github/super-linter@v5
+        # In this terraform HCL/yaml repository, not using the full linter image
+        # uses: github/super-linter@v5
+        uses: github/super-linter/slim@v5
         env:
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_TERRAFORM_TERRASCAN: false
