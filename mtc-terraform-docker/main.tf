@@ -59,10 +59,10 @@ output "ip_address2" {
 
 output "container-name" {
   value       = docker_container.nodered_container.name
-  description = "The name of the container"
+  description = "Container One name"
 }
 
 output "container-name2" {
   value       = docker_container.nodered_container2.name
-  description = "The name of the container"
+  description = "Container Two name"
 }
