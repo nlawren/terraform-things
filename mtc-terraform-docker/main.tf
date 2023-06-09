@@ -49,12 +49,12 @@ resource "docker_container" "nodered_container2" {
 
 output "ip_address" {
   value       = join(":", [docker_container.nodered_container.network_data[0].ip_address, docker_container.nodered_container.ports[0].external])
-  description = "The IP address and port of the container"
+  description = "The IP address and port of container one"
 }
 
 output "ip_address2" {
   value       = join(":", [docker_container.nodered_container2.network_data[0].ip_address, docker_container.nodered_container2.ports[0].external])
-  description = "The IP address and port of the container"
+  description = "The IP address and port of the container two"
 }
 
 output "container-name" {
