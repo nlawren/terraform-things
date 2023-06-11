@@ -4,7 +4,7 @@
 
 Learning about and playing around with Hashicorp Terraform. Using it for AWS and local docker work. Also using AWS Cloud9.
 
-Currently working through the Udemy course [More than Certified in Terraform](https://www.udemy.com/share/103Oik3@CEOOsDM63oWzlTXnbpMEhR51qQA4e-I4q3yoCIyubQ5eEuyaDxxqxhZHYYCbVI_T9Q==/) by Derek Morgan.
+Currently working through the Udemy course [More than Certified in Terraform](https://www.udemy.com/course/terraform-certified/?kw=More+than+certified+i&src=sac) by Derek Morgan.
 
 Completed the Udemy course/exam preparation by Bryan Krausen - [HashiCorp Certified: Terraform Associate Practice Exam 2023
-](https://www.udemy.com/share/102Zak3@Y8YmaIeCM_ItG7Xr4wQhry0JMSlS40z1x9AnK-bhpwGvHye5bL6J5pDsiMq1B8ZXyw==/) and passed successfully. A combination of the hands on terraform course from Derek and then review by the practice exams made getting the Hashicorp Terraform Associate certification easily possible.
+](https://www.udemy.com/course/terraform-associate-practice-exam/?kw=Terraform+Associate+Practice+Exam+2023&src=sac) and passed successfully. A combination of the hands on terraform course from Derek and then review by the practice exams made getting the Hashicorp Terraform Associate certification easily possible.
