@@ -1,67 +1,39 @@
 ---
-#################################
-#################################
-## Super Linter GitHub Actions ##
-#################################
-#################################
-name: Lint Code Base
+name: Lint
 
-#
-# Documentation:
-# https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
-#
-
-#############################
-# Start the job on all push #
-#############################
-on:
+on: # yamllint disable-line rule:truthy
   push:
-    branches: [master, main]
+    branches: [main]
   pull_request:
-    branches: [master, main]
+    branches: [main]
 
-###############
-# Set the Job #
-###############
+permissions: {}
+
 jobs:
   build:
-    # Name the Job
-    name: Lint Code Base
-    # Set the agent to run on
+    name: Lint
     runs-on: ubuntu-latest
 
-    ############################################
-    # Grant status permission for MULTI_STATUS #
-    ############################################
     permissions:
       contents: read
       packages: read
+      # To report GitHub Actions status checks
       statuses: write
 
-    ##################
-    # Load all steps #
-    ##################
     steps:
-      ##########################
-      # Checkout the code base #
-      ##########################
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
-          # Full git history is needed to get a proper
-          # list of changed files within `super-linter`
+          # super-linter needs the full git history to get the
+          # list of files that changed across commits
           fetch-depth: 0
 
-      ################################
-      # Run Linter against code base #
-      ################################
-      - name: Lint Code Base
-        # In this terraform HCL/yaml repository, not using the full linter image
-        # uses: github/super-linter@v5
-        uses: github/super-linter/slim@v5
+      - name: Super-linter
+        uses: super-linter/super-linter/slim@v7.2.1
         env:
           VALIDATE_ALL_CODEBASE: false
+          VALIDATE_MARKDOWN: true
           VALIDATE_TERRAFORM_TERRASCAN: false
-          # Change to 'master' if your main branch differs
           DEFAULT_BRANCH: main
+          # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
