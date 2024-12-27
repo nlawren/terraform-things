@@ -32,7 +32,6 @@ jobs:
         uses: super-linter/super-linter/slim@v7.2.1
         env:
           VALIDATE_ALL_CODEBASE: false
-          VALIDATE_MARKDOWN: true
           VALIDATE_TERRAFORM_TERRASCAN: false
           DEFAULT_BRANCH: main
           # To report GitHub Actions status checks
