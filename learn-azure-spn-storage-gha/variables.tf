@@ -10,7 +10,7 @@ variable "naming_prefix" {
 
 variable "github_repository" {
   type    = string
-  default = "github-actions-terraform"
+  default = "gha-terraform-az-template"
 }
 
 variable "tag_usage" {
