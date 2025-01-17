@@ -11,3 +11,11 @@ terraform {
 provider "azurerm" {
   features {}
 }
+
+resource "azurerm_resource_group" "rfp-rg" {
+  name = "rfp-resources"
+  location = "Australia East"
+  tags = {
+    environment = "dev"
+  }
+}
