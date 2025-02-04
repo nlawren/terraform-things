@@ -6,6 +6,8 @@
 # Azurerm network security rule: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_rule
 # Azurerm nsg association: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_network_security_group_association
 # Azurerm public ip: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip
+# Azurerm nic: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface
+# Azurerm bastion: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/bastion_host
 
 terraform {
   required_version = ">= 1.9"
