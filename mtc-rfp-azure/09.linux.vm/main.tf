@@ -109,3 +109,33 @@ resource "azurerm_network_interface" "rfp-nic" {
     environment = "dev"
   }
 }
+
+resource "azurerm_linux_virtual_machine" "rfp-linux-vm" {
+  name                  = "rfp-linux-vm"
+  resource_group_name   = azurerm_resource_group.rfp-rg.name
+  location              = azurerm_resource_group.rfp-rg.location
+  size                  = "Standard_B1s"
+  admin_username        = "serveradmin"
+  network_interface_ids = [azurerm_network_interface.rfp-nic.id]
+
+  admin_ssh_key {
+    username   = "serveradmin"
+    public_key = file("~/.ssh/id_ed25519.pub")
+  }
+
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts"
+    version   = "latest"
+  }
+
+  tags = {
+    environment = "dev"
+  }
+}
