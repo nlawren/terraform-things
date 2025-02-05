@@ -118,7 +118,7 @@ resource "azurerm_linux_virtual_machine" "rfp-linux-vm" {
   admin_username        = "serveradmin"
   network_interface_ids = [azurerm_network_interface.rfp-nic.id]
 
-  custom_data = filebase64("customdata.tpl")
+  custom_data = filebase64("${path.module}/install_tailscale.sh")
 
   admin_ssh_key {
     username   = "serveradmin"
