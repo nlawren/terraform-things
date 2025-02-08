@@ -9,6 +9,8 @@
 # Azurerm nic: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface
 # Azurerm bastion: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/bastion_host
 # Azurerm linux vm: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine
+# Cloudflare: https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs
+
 
 terraform {
   required_version = ">= 1.9"
