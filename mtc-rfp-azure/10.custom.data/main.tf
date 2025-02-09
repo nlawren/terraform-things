@@ -11,31 +11,6 @@
 # Azurerm linux vm: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine
 # Cloudflare: https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs
 
-
-terraform {
-  required_version = ">= 1.9"
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "~> 4.0"
-    }
-  }
-}
-
-provider "azurerm" {
-  resource_provider_registrations = "core"
-  features {}
-}
-
-resource "azurerm_resource_group" "rfp-rg" {
-  name     = "rfp-resourceg"
-  location = "Australia East"
-
-  tags = {
-    environment = "dev"
-  }
-}
-
 resource "azurerm_virtual_network" "rfp-vnet" {
   name                = "rfp-network"
   resource_group_name = azurerm_resource_group.rfp-rg.name
