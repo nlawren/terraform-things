@@ -118,3 +118,11 @@ resource "azurerm_linux_virtual_machine" "rfp-linux-vm" {
     environment = "dev"
   }
 }
+
+resource "cloudflare_dns_record" "ec2-dns" {
+  zone_id = var.zone_id
+  name    = "ec2"
+  content = azurerm_public_ip.rfp-publicip-1.ip
+  type    = "A"
+  proxied = false
+}
