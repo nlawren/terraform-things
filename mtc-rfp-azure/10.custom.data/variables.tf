@@ -4,5 +4,5 @@ provider "cloudflare" {
 
 variable "zone_id" {
   default = "<YOUR_ZONE_ID>"
-  type = string
+  type    = string
 }
