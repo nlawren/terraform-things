@@ -2,5 +2,5 @@
 
 ## Requirements
 
-* Cloudflare API token and DNS zone declared as environemnt variables.
+* Cloudflare API token and DNS zone declared as environment variables.
 * Works on 5.x of the Cloudflare provider.
