@@ -35,6 +35,7 @@ jobs:
           VALIDATE_CHECKOV: false
           VALIDATE_GIT_COMMITLINT: false
           VALIDATE_TERRAFORM_TERRASCAN: false
+          VALIDATE_NATURAL_LANGUAGE: false
           DEFAULT_BRANCH: main
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
