@@ -122,7 +122,7 @@ resource "azurerm_linux_virtual_machine" "rfp-linux-vm" {
 resource "cloudflare_dns_record" "rfp-linux-host-dns" {
   zone_id = var.zone_id
   name    = "rfp-linux-vm"
-  content = azurerm_public_ip.rfp-publicip-1.ip
+  content = azurerm_linux_virtual_machine.rfp-linux-vm.public_ip_address
   type    = "A"
   proxied = false
   ttl     = 3600

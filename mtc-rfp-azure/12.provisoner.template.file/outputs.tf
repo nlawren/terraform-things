@@ -1,16 +1,16 @@
 output "name" {
-  value = cloudflare_dns_record.host-dns.name
+  value = cloudflare_dns_record.rfp-linux-host-dns.name
 }
 
 output "content" {
-  value     = cloudflare_dns_record.host-dns.content
+  value     = cloudflare_dns_record.rfp-linux-host-dns.content
   sensitive = false
 }
 
 output "ttl" {
-  value = cloudflare_dns_record.host-dns.ttl
+  value = cloudflare_dns_record.rfp-linux-host-dns.ttl
 }
 
 output "type" {
-  value = cloudflare_dns_record.host-dns.type
+  value = cloudflare_dns_record.rfp-linux-host-dns.type
 }
