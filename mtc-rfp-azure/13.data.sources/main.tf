@@ -119,6 +119,11 @@ resource "azurerm_linux_virtual_machine" "rfp-linux-vm" {
   }
 }
 
+data "azurerm_public_ip" "rfp-ip-data" {
+  name                = azurerm_public_ip.rfp-publicip-1.name
+  resource_group_name = azurerm_resource_group.rfp-rg.name
+}
+
 resource "cloudflare_dns_record" "rfp-linux-host-dns" {
   zone_id = var.zone_id
   name    = "rfp-linux-vm"
