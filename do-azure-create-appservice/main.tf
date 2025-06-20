@@ -1,6 +1,7 @@
 # Module References:
 # Service plan: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan
 # Linux web app: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app
+# Random: https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id
 
 resource "random_pet" "rg_name" {
   prefix = var.resource_group_name_prefix
