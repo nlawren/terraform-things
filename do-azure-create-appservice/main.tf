@@ -16,8 +16,12 @@ resource "random_id" "random" {
   byte_length = 4
 }
 
+resource "random_pet" "random" {
+  prefix = var.service_plan_prefix
+}
+
 resource "azurerm_service_plan" "asp" {
-  name                = "isileth-app-plan-${random_id.random.id}"
+  name                = random_pet.random.id
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   os_type             = "Linux"
