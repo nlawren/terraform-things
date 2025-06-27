@@ -11,7 +11,7 @@ variable "resource_group_name_prefix" {
 }
 
 variable "service_plan_prefix" {
-  type = string
-  default = "asp"
+  type        = string
+  default     = "asp"
   description = "Prefix of the application service plan"
 }
