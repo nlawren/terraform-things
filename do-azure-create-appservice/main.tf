@@ -2,6 +2,7 @@
 # Service plan: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan
 # Linux web app: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app
 # Random: https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id
+# Note: 20250825 - keeping the linux web app name constant - previously used ${random_id.random.hex}
 
 resource "random_pet" "rg_name" {
   prefix = var.resource_group_name_prefix
@@ -29,7 +30,7 @@ resource "azurerm_service_plan" "asp" {
 }
 
 resource "azurerm_linux_web_app" "webapp" {
-  name                = "isileth-webapp-${random_id.random.hex}"
+  name                = "isileth-webapp-7768ee70"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   service_plan_id     = azurerm_service_plan.asp.id
