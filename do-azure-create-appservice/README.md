@@ -7,4 +7,4 @@ Useful links:
 - [Microsoft Learn](https://learn.microsoft.com/en-us/azure/app-service/provision-resource-terraform?tabs=linux) on how to deploy this via terraform. Also includes a section on deploying direct from Github.
 - [Microsoft Learn](https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans) on the various tiers of the Azure App Service.
 
-Provider details are accurate as of June 2025.
+Provider details are accurate as of February 2026.
