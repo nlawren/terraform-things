@@ -31,24 +31,11 @@ resource "azurerm_service_plan" "asp" {
 }
 
 resource "azurerm_linux_web_app" "webapp" {
-  name                = "isileth-webapp-7768ee70"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
-  service_plan_id     = azurerm_service_plan.asp.id
-  https_only          = true
+  for_each = local.environments
 
-  site_config {
-    always_on = false
-    application_stack {
-      dotnet_version = "8.0"
-    }
-  }
-}
-
-resource "azurerm_linux_web_app" "dev_webapp" {
-  name                = "isileth-webapp-7768ee70-dev"
-  location            = azurerm_resource_group.rg.location
+  name                = "isileth-webapp-7768ee70-${each.key}"
   resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
   service_plan_id     = azurerm_service_plan.asp.id
   https_only          = true
 

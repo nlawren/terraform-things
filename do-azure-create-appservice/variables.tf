@@ -15,3 +15,13 @@ variable "service_plan_prefix" {
   default     = "asp"
   description = "Prefix of the application service plan"
 }
+
+variable "enable_dev" {
+  type    = bool
+  default = true
+}
+
+variable "enable_prod" {
+  type    = bool
+  default = true
+}
