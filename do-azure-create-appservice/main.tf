@@ -19,24 +19,27 @@ resource "random_id" "random" {
 }
 
 resource "random_pet" "random" {
-  prefix = var.service_plan_prefix
+  for_each = local.active_environments
+  prefix   = var.service_plan_prefix
 }
 
 resource "azurerm_service_plan" "asp" {
-  name                = random_pet.random.id
+  for_each = local.active_environments
+
+  name                = "${random_pet.random[each.key].id}-${each.key}-plan-${each.value.sku}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   os_type             = "Linux"
-  sku_name            = "F1"
+  sku_name            = each.value.sku
 }
 
 resource "azurerm_linux_web_app" "webapp" {
-  for_each = local.environments
+  for_each = local.active_environments
 
   name                = "isileth-webapp-7768ee70-${each.key}"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
-  service_plan_id     = azurerm_service_plan.asp.id
+  service_plan_id     = azurerm_service_plan.asp[each.key].id
   https_only          = true
 
   site_config {

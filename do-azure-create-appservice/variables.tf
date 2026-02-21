@@ -16,12 +16,29 @@ variable "service_plan_prefix" {
   description = "Prefix of the application service plan"
 }
 
-variable "enable_dev" {
-  type    = bool
-  default = true
-}
+variable "environments" {
+  description = "Environment configuration"
+  type = map(object({
+    enabled = bool
+    sku     = string
+  }))
 
-variable "enable_prod" {
-  type    = bool
-  default = true
+  default = {
+    dev = {
+      enabled = true
+      sku     = "F1"
+    }
+    test = {
+      enabled = true
+      sku     = "F1"
+    }
+    staging = {
+      enabled = true
+      sku     = "F1"
+    }
+    prod = {
+      enabled = true
+      sku     = "F1"
+    }
+  }
 }

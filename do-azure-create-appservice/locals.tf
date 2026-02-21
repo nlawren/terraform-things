@@ -1,10 +1,7 @@
 locals {
-  environments = {
-    for env, enabled in {
-      dev  = var.enable_dev
-      prod = var.enable_prod
-    }
-    : env => enabled
-    if enabled
+  active_environments = {
+    for env, cfg in var.environments :
+    env => cfg
+    if cfg.enabled
   }
 }

@@ -3,9 +3,12 @@ output "resource_group_name" {
   value       = azurerm_resource_group.rg.name
 }
 
-output "service_plan_name" {
-  description = "The name of the App Service Plan"
-  value       = azurerm_service_plan.asp.name
+output "service_plan_names" {
+  description = "The name of the App Service Plans"
+  value = {
+    for env, plan in azurerm_service_plan.asp :
+    env => plan.name
+  }
 }
 
 output "webapp_names" {
