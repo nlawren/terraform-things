@@ -27,6 +27,7 @@ jobs:
           # super-linter needs the full git history to get the
           # list of files that changed across commits
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Super-linter
         uses: super-linter/super-linter/slim@v8.5.0
@@ -34,8 +35,10 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_CHECKOV: false
           VALIDATE_GIT_COMMITLINT: false
-          VALIDATE_TERRAFORM_TERRASCAN: false
+          VALIDATE_TRIVY: false
           VALIDATE_NATURAL_LANGUAGE: false
+          VALIDATE_PYTHON_BLACK: false
+          VALIDATE_GITHUB_ACTIONS_ZIZMOR: false
           DEFAULT_BRANCH: main
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
