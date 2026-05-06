@@ -1,6 +1,6 @@
 # Terraform Things
 
-[![Super-Linter](https://github.com/nlawren/terraform-things/actions/workflows/linter.yaml/badge.svg)](https://github.com/marketplace/actions/super-linter)
+![Terraform lint/format](https://github.com/nlawren/terraform-things/actions/workflows/terraform-lint.yml/badge.svg?event=push))
 
 Learning about and playing around with Hashicorp Terraform. Using it for AWS and local docker work. Also was previously using AWS Cloud9 (before it was deprecated).
 
