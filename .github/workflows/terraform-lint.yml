@@ -1,0 +1,82 @@
+name: Terraform Lint & Format
+
+on:
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "**.tf"
+      - "**.tfvars"
+  push:
+    branches: ["main"]
+
+# Restrict default token permissions to least-privilege
+permissions:
+  contents: read
+
+jobs:
+  terraform-lint-format:
+    name: Lint & Format Terraform
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    # Prevent concurrent runs on the same branch/PR
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          # Avoid persisting credentials beyond this job
+          persist-credentials: false
+
+      # Pin Terraform to a specific version for reproducibility
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@5e8dbf3c6d9deaf4193ca7a8fb23f2ac83bb6c85 # v4.0.0
+        with:
+          terraform_version: "1.9.8"
+
+      # Check formatting — fails if any .tf file needs reformatting
+      - name: Terraform Format Check
+        id: fmt
+        run: terraform fmt -check -recursive -diff
+        continue-on-error: true
+
+      # Initialise without a backend (no credentials needed for lint/fmt)
+      - name: Terraform Init (no backend)
+        id: init
+        run: terraform init -backend=false
+
+      # Validate configuration syntax and internal consistency
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+
+      # TFLint — catches provider-specific issues and best practice violations
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@b480b8fcdaa6f2c577f8e4fa799e89e756bb7c93 # v6.2.2
+        with:
+          tflint_version: "v0.62.0"
+
+      - name: Init TFLint
+        run: tflint --init
+        env:
+          # Required to pull the AWS/Azure/GCP ruleset plugins
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run TFLint
+        id: tflint
+        run: tflint --recursive --format compact
+        continue-on-error: true
+
+      # Fail the job if any critical step failed
+      - name: Enforce results
+        if: |
+          steps.fmt.outcome      == 'failure' ||
+          steps.init.outcome     == 'failure' ||
+          steps.validate.outcome == 'failure' ||
+          steps.tflint.outcome   == 'failure'
+        run: |
+          echo "One or more Terraform checks failed. See annotations above."
+          exit 1
