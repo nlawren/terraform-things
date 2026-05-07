@@ -2,7 +2,7 @@
 version: 2
 updates:
   - package-ecosystem: "terraform"
-    directory: "/do-azure-create-appservice"
+    directory: "/"
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10

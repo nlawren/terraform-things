@@ -1,6 +1,6 @@
 # Terraform Things
 
-![Terraform lint/format](https://github.com/nlawren/terraform-things/actions/workflows/terraform-lint.yml/badge.svg?event=push))
+![Terraform lint/format](https://github.com/nlawren/terraform-things/actions/workflows/terraform-lint.yml/badge.svg?event=push)
 
 Learning about and playing around with Hashicorp Terraform. Using it for AWS and local docker work. Also was previously using AWS Cloud9 (before it was deprecated).
 
@@ -10,4 +10,4 @@ Completed the Udemy course/exam preparation by Bryan Krausen - [HashiCorp Certif
 
 A combination of the hands on (more than certified) terraform course from Derek and then knowledge review with the practice exams made getting the Hashicorp Terraform Associate certification significantly easier.
 
-Using Github actions to run both Super Linter lite (for terraform and yaml linting) and dependabot to keep `do-azure-create-appservice` modules up to date.
+Using Github actions to run a terraform lint/validate/tflint (for terraform and yaml linting) and dependabot to keep `do-azure-create-appservice` modules up to date.
