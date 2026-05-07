@@ -2,7 +2,28 @@
 version: 2
 updates:
   - package-ecosystem: "terraform"
-    directory: "/"
+    directory: "/do-azure-create-appservice"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 7
+  - package-ecosystem: "terraform"
+    directory: "/learn-aws-template"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 7
+  - package-ecosystem: "terraform"
+    directory: "/learn-azure-template"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 7
+  - package-ecosystem: "terraform"
+    directory: "/learn-cloudflare-dns"
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10

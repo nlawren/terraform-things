@@ -10,4 +10,9 @@ Completed the Udemy course/exam preparation by Bryan Krausen - [HashiCorp Certif
 
 A combination of the hands on (more than certified) terraform course from Derek and then knowledge review with the practice exams made getting the Hashicorp Terraform Associate certification significantly easier.
 
-Using Github actions to run a terraform lint/validate/tflint (for terraform and yaml linting) and dependabot to keep `do-azure-create-appservice` modules up to date.
+Using Github actions to run a terraform lint/validate/tflint (for terraform and yaml linting) and dependabot to keep a select number of configurations up to date:
+
+- do-azure-create-appservice
+- learn-aws-template
+- learn-azure-template
+- learn-cloudflare-dns
