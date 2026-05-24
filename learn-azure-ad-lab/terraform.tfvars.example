@@ -1,0 +1,12 @@
+# Copy this file to terraform.tfvars and fill in the sensitive values.
+# Do NOT commit terraform.tfvars to source control.
+
+prefix   = "adlab"
+location = "australiaeast"
+
+domain_name         = "corp.local"
+domain_netbios_name = "CORP"
+
+admin_username = "labadmin"
+admin_password = "CHANGE_ME_P@ssw0rd!"   # Must meet Azure complexity requirements
+dsrm_password  = "CHANGE_ME_Dsrm@123!"  # Can differ from admin_password; store separately
