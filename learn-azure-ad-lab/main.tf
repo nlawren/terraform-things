@@ -256,7 +256,7 @@ resource "azurerm_windows_virtual_machine" "server" {
   resource_group_name = azurerm_resource_group.lab.name
 
   # Standard_B2s: 2 vCPU / 4 GB RAM — minimum comfortable size for a member server.
-    size = "Standard_B2s"
+  size = "Standard_B2s"
 
   admin_username = var.admin_username
   admin_password = var.admin_password
